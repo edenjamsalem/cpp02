@@ -1,4 +1,4 @@
-NAME = fixed01
+NAME = fixed02
 
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -g3 -std=c++98

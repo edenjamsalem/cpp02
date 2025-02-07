@@ -11,8 +11,8 @@ class Fixed
 
 	public:
 		Fixed();
-		Fixed(const Fixed& other);
-		Fixed& operator=(const Fixed& other);
+		Fixed(const Fixed &other);
+		Fixed& operator=(const Fixed &other);
 		~Fixed();
 		Fixed(const int intValue);
 		Fixed(const float floatValue);
@@ -22,27 +22,25 @@ class Fixed
 		float			toFloat(void) const;
 		int 			toInt(void) const;
 		
-		Fixed	operator+(const Fixed& other);
-		Fixed	operator-(const Fixed& other);
-		Fixed	operator*(const Fixed& other);
-		Fixed	operator/(const Fixed& other);
+		Fixed	operator+(const Fixed &other) const;
+		Fixed	operator-(const Fixed &other) const;
+		Fixed	operator*(const Fixed &other) const;
+		Fixed	operator/(const Fixed &other) const;
 
-		Fixed	operator++();
-		Fixed&	operator++(int);
-		Fixed	operator--();
-		Fixed&	operator--(int);
+		Fixed	&operator++();
+		Fixed	&operator--();
+		Fixed	operator++(int);
+		Fixed	operator--(int);
 
-		bool			operator<(const Fixed& other);
-		bool			operator<=(const Fixed& other);
-		bool			operator>(const Fixed& other);
-		bool			operator>=(const Fixed& other);
-		bool			operator==(const Fixed& other);
-		bool			operator!=(const Fixed& other);
+		bool			operator<(const Fixed &other) const;
+		bool			operator<=(const Fixed &other) const;
+		bool			operator>(const Fixed &other) const;
+		bool			operator>=(const Fixed &other) const;
+		bool			operator==(const Fixed &other) const;
+		bool			operator!=(const Fixed &other) const;
 
-		Fixed&	min(Fixed& a, Fixed& b);
-		Fixed&	max(Fixed& a, Fixed& b);
-		Fixed&	min(const Fixed& a, const Fixed& b);
-		Fixed&	max(const Fixed& a, const Fixed& b);
+		static const Fixed&	min(Fixed const &a, Fixed const &b);
+		static const Fixed&	max(Fixed const &a, Fixed const &b);
 };
 
 std::ostream&	operator<<(std::ostream& stream, const Fixed& fixedPointNbr);
