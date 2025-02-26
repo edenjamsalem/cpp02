@@ -25,12 +25,12 @@ Fixed::Fixed(const float floatValue) : _fixedPointValue((int)(floatValue * (1 <<
 int Fixed::getRawBits(void) const
 {
 	return (_fixedPointValue);
-};
+}
 
 void Fixed::setRawBits(int const raw)
 {
 	this->_fixedPointValue = raw;
-};
+}
 
 int	Fixed::toInt(void) const
 {
@@ -49,12 +49,12 @@ std::ostream&	operator<<(std::ostream& stream, const Fixed& fixedPointNbr)
 
 Fixed	Fixed::operator+(const Fixed& other) const
 {
-	return (Fixed(this->_fixedPointValue + other._fixedPointValue));
+	return (Fixed(this->toFloat() + other.toFloat()));
 }
 
 Fixed	Fixed::operator-(const Fixed& other) const
 {
-	return (Fixed(this->_fixedPointValue - other._fixedPointValue));
+	return (Fixed(this->toFloat() - other.toFloat()));
 }
 
 Fixed	Fixed::operator*(const Fixed& other) const
@@ -125,14 +125,15 @@ Fixed	Fixed::operator--(int)
 	return (old);
 }
 
-const Fixed&	Fixed::min(Fixed const &a, Fixed const &b)
+const Fixed	Fixed::min(Fixed const &a, Fixed const &b)
 {
+	
 	if (a < b)
 		return (a);
 	return (b);
 }
 
-const Fixed&	Fixed::max(Fixed const &a, Fixed const &b)
+const Fixed	Fixed::max(Fixed const &a, Fixed const &b)
 {
 	if (a > b)
 		return (a);

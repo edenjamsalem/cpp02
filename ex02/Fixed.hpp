@@ -39,8 +39,8 @@ class Fixed
 		bool			operator==(const Fixed &other) const;
 		bool			operator!=(const Fixed &other) const;
 
-		static const Fixed&	min(Fixed const &a, Fixed const &b);
-		static const Fixed&	max(Fixed const &a, Fixed const &b);
+		static const Fixed	min(Fixed const &a, Fixed const &b);
+		static const Fixed	max(Fixed const &a, Fixed const &b);
 };
 
 std::ostream&	operator<<(std::ostream& stream, const Fixed& fixedPointNbr);
